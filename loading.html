@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>grgLoading</title>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+  </head>
+  <style type="text/css">
+      .demos-header {
+          padding: 35px 0;
+      }
+      .demos-title {
+          text-align: center;
+          font-size: 34px;
+          color: #3cc51f;
+          font-weight: 400;
+          margin: 0 15%;
+      }      
+      .demos-content-padded {
+          padding: 15px;
+      }
+      .weui-btn {
+          position: relative;
+          display: block;
+          margin-top: 15px;
+          margin-left: auto;
+          margin-right: auto;
+          padding-left: 14px;
+          padding-right: 14px;
+          background-color: #1aad19;
+          box-sizing: border-box;
+          font-size: 18px;
+          text-align: center;
+          text-decoration: none;
+          color: #fff;
+          line-height: 2.55555556;
+          border-radius: 5px;
+          -webkit-tap-highlight-color: rgba(0,0,0,0);
+          overflow: hidden;
+      } 
+      .weui-btn:after {
+          content: " ";
+          width: 200%;
+          height: 200%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          border: 1px solid rgba(0,0,0,.2);
+          -webkit-transform: scale(.5);
+          transform: scale(.5);
+          -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+          box-sizing: border-box;
+          border-radius: 10px;
+      }                 
+  </style>
+  <body ontouchstart>
+
+
+    <header class='demos-header' style="padding: 35px 0;">
+      <h1 class="demos-title">grgLoading</h1>
+    </header>
+
+    <div class='demos-content-padded'>
+      <a href="javascript:;" class="weui-btn weui-btn_primary" onclick="loading()">showLoading</a>
+      <a href="javascript:;" class="weui-btn weui-btn_disabled weui-btn_primary">hideLoading</a>
+
+    </div>
+<script src="loading.js"></script>
+<script>
+      function loading(){
+        openLoading('正在加载中');
+        setTimeout(closeLoading,2000);
+      }
+</script>
+
+  </body>
+</html>
