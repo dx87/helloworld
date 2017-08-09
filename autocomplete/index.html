@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>演示输入补全</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <link rel="stylesheet" href="sm.min.css?v=-ebe1d19">
+    <link rel="stylesheet" href="jquery-ui.css">
+  </head>
+  <body ontouchstart="">
+
+  <div class="page-group">
+        <div class="tabbar" style="position: fixed;width: 100%;height:5rem">
+              <div class="searchbar row">
+                <div class="search-input col-80">
+                  <label class="icon icon-search" for="search"></label>
+                  <input type="search" id='search' placeholder='请输入名称'/>
+                </div>
+                <a class="button button-fill button-primary col-20" id="searchBtn">搜索</a>
+              </div>                              
+        </div>        
+        <div class="page page-curren" id="finprolist" style="margin-top: 5rem;">
+            <!-- 这里是页面内容区 -->
+            <div class="content infinite-scroll">
+<!--                   <div class="buttons-tab">
+                               <a href="#tab1" class="tab-link active button">在销理财</a>
+                               <a href="#tab2" class="tab-link button">理财夜市</a>
+                             </div>
+                             <div class="searchbar row">
+                               <div class="search-input col-80">
+                                 <label class="icon icon-search" for="search"></label>
+                                 <input type="search" id='search' placeholder='请输入理财产品名称'/>
+                               </div>
+                               <a class="button button-fill button-primary col-20">搜索</a>
+                             </div>  -->                             
+                   <ul class="fin-pro-ul" id="finproUl">
+                       
+                   </ul>
+            </div>
+            <!--content-->
+        </div>
+    </div>
+      <script src="jquery.js"></script>
+      <script src="jquery-ui.js"></script>
+      <script>
+      $(function() {
+        var availableTags = [
+          "ActionScript",
+          "AppleScript",
+          "Asp",
+          "BASIC",
+          "C",
+          "C++",
+          "Clojure",
+          "COBOL",
+          "ColdFusion",
+          "Erlang",
+          "Fortran",
+          "Groovy",
+          "Haskell",
+          "Java",
+          "JavaScript",
+          "Lisp",
+          "Perl",
+          "PHP",
+          "Python",
+          "Ruby",
+          "Scala",
+          "Scheme"
+        ];
+        $( "#search" ).autocomplete({
+          source: availableTags
+        });
+      });
+      </script>      
+  </body>
+</html>
