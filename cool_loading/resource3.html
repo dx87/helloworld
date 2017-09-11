@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>coolloading3</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no, email=no"/>
+	<style type="text/css">
+    .spinner {
+      width: 60px;
+      height: 60px;
+
+      position: relative;
+      margin: 100px auto;
+    }
+
+    .double-bounce1, .double-bounce2 {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: #67CF22;
+      opacity: 0.6;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      -webkit-animation: bounce 2.0s infinite ease-in-out;
+      animation: bounce 2.0s infinite ease-in-out;
+    }
+
+    .double-bounce2 {
+      -webkit-animation-delay: -1.0s;
+      animation-delay: -1.0s;
+    }
+
+    @-webkit-keyframes bounce {
+      0%, 100% { -webkit-transform: scale(0.0) }
+      50% { -webkit-transform: scale(1.0) }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+      } 50% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+      }
+    }
+  </style>    
+</head>
+<body ontouchstart="">
+  <div>
+    wodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewode
+  </div>
+  <div>
+  	wodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewode
+  </div>  
+  <div>
+    wodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewode
+  </div>  
+  <div>
+    wodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewode
+  </div>  
+  <div>
+    wodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewode
+  </div>  
+  <div>
+    wodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewode
+  </div>  
+  <div>
+    wodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewodewode
+  </div>
+
+  <div class="spinner">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+  </div>
+
+</body>
+</html>
