@@ -182,11 +182,11 @@
 		function loadjscssfile(filename, filetype, callback){
 			if (filetype=="js"){
 				var url = window.location.href;
-				debugger
+				var baseUrl = url.split("index")[0];
 				var fileref=document.createElement('script')
 				fileref.async = "true";
 				fileref.setAttribute("type","text/javascript")
-				fileref.setAttribute("src", filename)
+				fileref.setAttribute("src", baseUrl+filename)
 			}
 			else if (filetype=="css"){
 				var fileref=document.createElement("link")
