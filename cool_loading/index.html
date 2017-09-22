@@ -110,14 +110,16 @@
 			if(button.getAttribute("class")=="btn_openLoading"){
 				button.onclick=function(that){
 					var src = that.path[0].getAttribute("data-fileSource");
+					//src = "https://htmlpreview.github.io/?https://github.com/dx87/helloworld/blob/master/cool_loading/loading.js";
 					if(isInclude(src)){
 						showLoading();
 					}else{
 						clear(src);
-						//loadjscssfile(src,"js","showLoading");
-						$.getScript(src, function(data, status, jqxhr) {
+						loadjscssfile(src,"js","showLoading");
+						//$("<script type = 'text/javascript' src='"+src+"'><\/script>");
+/*						$.getScript(src, function(data, status, jqxhr) {
 							alert();
-						});
+						});*/
 					}					
 				}
 			}else if(button.getAttribute("class")=="btn_openMaskLoading"){
@@ -127,10 +129,11 @@
 						showMaskLoading();
 					}else{
 						clear(src);
-						//loadjscssfile(src,"js","showMaskLoading");
-						$.getScript(src, function(data, status, jqxhr) {
+						loadjscssfile(src,"js","showMaskLoading");
+						//$("<script type = 'text/javascript' src='"+src+"'><\/script>");
+/*						$.getScript(src, function(data, status, jqxhr) {
 							alert();
-						});						
+						});	*/					
 					}					
 				}				
 			}else if(button.getAttribute("class")=="btn_hideLoading"){
@@ -141,6 +144,7 @@
 					}else{
 						clear(src);
 						//loadjscssfile(src,"js","hideLoading");
+						$("<script type = 'text/javascript' src='"+src+"'><\/script>").appendTo("head");
 						$.getScript(src, function(data, status, jqxhr) {
 							alert();
 						});						
@@ -192,10 +196,11 @@
 			if (filetype=="js"){
 				var url = window.location.href;
 				var baseUrl = url.split("index")[0];
+				baseUrl = "";
 				var fileref=document.createElement('script')
 				fileref.async = "true";
 				fileref.setAttribute("type","text/javascript")
-				fileref.setAttribute("src", baseUrl+filename)
+				fileref.setAttribute("src", ""+filename)
 			}
 			else if (filetype=="css"){
 				var fileref=document.createElement("link")
