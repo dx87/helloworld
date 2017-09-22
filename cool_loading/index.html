@@ -143,11 +143,11 @@
 						hideLoading();
 					}else{
 						clear(src);
-						//loadjscssfile(src,"js","hideLoading");
-						$("<script type = 'text/javascript' src='"+src+"'><\/script>").appendTo("head");
+						loadjscssfile(src,"js","hideLoading");
+/*						$("<script type = 'text/javascript' src='"+src+"'><\/script>").appendTo("head");
 						$.getScript(src, function(data, status, jqxhr) {
 							alert();
-						});						
+						});	*/					
 					}					
 				}				
 			}
