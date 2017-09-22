@@ -81,6 +81,164 @@
 		<a id="btn_hideLoading" class="btn_hideLoading" data-fileSource="loading8.js">关闭loading</a>
 	</div>							
 	<!-- <script src="jquery.js"></script> -->
+	<script>
+/*		document.getElementById("btn_openLoading").onclick=function(that){
+			var src = that.path[0].getAttribute("data-fileSource");
+			if(isInclude(src)){
+				showLoading();
+			}else{
+				clear();
+				loadjscssfile(src,"js","showLoading");
+			}
+			// var i = setInterval(function(){
+			// 	console.log("flag",flag);
+			// },100);
+			// setTimeout(function(){
+			// 	clearInterval(i);
+			// },2000);			
+		};
+		document.getElementById("btn_openMaskLoading").onclick=function(){
+			showMaskLoading();
+		};
+		document.getElementById("btn_hideLoading").onclick=function(){
+			hideLoading();
+		};*/
+alert()
+		var buttons = document.getElementsByTagName('a');
+		for (var i = 0; i < buttons.length; i++) {
+			var button = buttons[i];
+			if(button.getAttribute("class")=="btn_openLoading"){
+				button.onclick=function(that){
+					var src = that.path[0].getAttribute("data-fileSource");
+					//src = "https://htmlpreview.github.io/?https://github.com/dx87/helloworld/blob/master/cool_loading/loading.js";
+					if(isInclude(src)){
+						showLoading();
+					}else{
+						clear(src);
+						loadjscssfile(src,"js","showLoading");
+						//$("<script type = 'text/javascript' src='"+src+"'><\/script>");
+/*						$.getScript(src, function(data, status, jqxhr) {
+							alert();
+						});*/
+					}					
+				}
+			}else if(button.getAttribute("class")=="btn_openMaskLoading"){
+				button.onclick=function(that){
+					var src = that.path[0].getAttribute("data-fileSource");
+					if(isInclude(src)){
+						showMaskLoading();
+					}else{
+						clear(src);
+						loadjscssfile(src,"js","showMaskLoading");
+						//$("<script type = 'text/javascript' src='"+src+"'><\/script>");
+/*						$.getScript(src, function(data, status, jqxhr) {
+							alert();
+						});	*/					
+					}					
+				}				
+			}else if(button.getAttribute("class")=="btn_hideLoading"){
+				button.onclick=function(that){
+					var src = that.path[0].getAttribute("data-fileSource");
+					if(isInclude(src)){
+						hideLoading();
+					}else{
+						clear(src);
+						loadjscssfile(src,"js","hideLoading");
+/*						$("<script type = 'text/javascript' src='"+src+"'><\/script>").appendTo("head");
+						$.getScript(src, function(data, status, jqxhr) {
+							alert();
+						});	*/					
+					}					
+				}				
+			}
+			
+		}
 
+
+		function clear(src){
+			removeElement(document.getElementById("spinner"));
+			removeElement(document.getElementById("mask"));
+			var docs = document.getElementsByTagName("script");
+			removeElement(docs[0]);
+/*			for(var i=0;i<docs.length;i++){
+				var doc = docs[i];
+				var currentSrc = doc.src;
+				debugger
+				if(currentSrc.indexOf(src)!=-1){
+					removeElement(doc);
+					debugger
+					return;
+				}
+			}*/
+		}
+
+		//清除页面元素
+		function removeElement(_element){
+			if(_element){
+				var _parentElement = _element.parentNode;
+				if(_parentElement){
+					_parentElement.removeChild(_element);
+				}
+			}
+		}		
+
+		//判断页面包含某个js或者css
+		function isInclude(name){
+		    var js= /js$/i.test(name);
+		    var es=document.getElementsByTagName(js?'script':'link');
+		    for(var i=0;i<es.length;i++) 
+		    if(es[i][js?'src':'href'].indexOf(name)!=-1)return true;
+		    return false;
+		}
+
+		//动态加载一个js/css文件
+		function loadjscssfile(filename, filetype, callback){
+			if (filetype=="js"){
+				var url = window.location.href;
+				var baseUrl = url.split("index")[0];
+				baseUrl = "";
+				var fileref=document.createElement('script')
+				fileref.async = "true";
+				fileref.setAttribute("type","text/javascript")
+				fileref.setAttribute("src", ""+filename)
+			}
+			else if (filetype=="css"){
+				var fileref=document.createElement("link")
+				fileref.setAttribute("rel", "stylesheet")
+				fileref.setAttribute("type", "text/css")
+				fileref.setAttribute("href", filename)
+			}
+			if (typeof fileref!="undefined"){
+				document.getElementsByTagName("head")[0].appendChild(fileref)
+			}
+		    if (fileref.addEventListener) {
+		        fileref.addEventListener('load', function () {
+		            console.log("loaded1");
+		            if(callback=="showLoading"){
+		            	showLoading();
+		            }else if(callback=="hideLoading"){
+		            	hideLoading();
+		            }else if(callback=="showMaskLoading"){
+		            	showMaskLoading();
+		            }
+		        }, false);
+		    } else if (fileref.attachEvent) {
+		        fileref.attachEvent('onreadystatechange', function () {
+		            var target = window.event.srcElement;
+		            if (target.readyState == 'loaded') {
+		                console.log("loaded2");
+			            if(callback=="showLoading"){
+			            	showLoading();
+			            }else if(callback=="hideLoading"){
+			            	hideLoading();
+			            }else if(callback=="showMaskLoading"){
+			            	showMaskLoading();
+			            }
+		            }
+		        });
+		    }			
+		}
+
+	</script>  	
 </body>
 </html>
