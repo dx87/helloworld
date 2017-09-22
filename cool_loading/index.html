@@ -80,7 +80,7 @@
 		<a id="btn_openMaskLoading" class="btn_openMaskLoading" data-fileSource="loading8.js">打开maskloading</a>
 		<a id="btn_hideLoading" class="btn_hideLoading" data-fileSource="loading8.js">关闭loading</a>
 	</div>							
-	<!-- <script src="loading.js"></script> -->
+	<script src="jquery.js"></script>
 	<script>
 /*		document.getElementById("btn_openLoading").onclick=function(that){
 			var src = that.path[0].getAttribute("data-fileSource");
@@ -114,7 +114,10 @@
 						showLoading();
 					}else{
 						clear(src);
-						loadjscssfile(src,"js","showLoading");
+						//loadjscssfile(src,"js","showLoading");
+						jQuery.getScript(src, function(data, status, jqxhr) {
+							alert();
+						});
 					}					
 				}
 			}else if(button.getAttribute("class")=="btn_openMaskLoading"){
@@ -124,7 +127,10 @@
 						showMaskLoading();
 					}else{
 						clear(src);
-						loadjscssfile(src,"js","showMaskLoading");
+						//loadjscssfile(src,"js","showMaskLoading");
+						jQuery.getScript(src, function(data, status, jqxhr) {
+							alert();
+						});						
 					}					
 				}				
 			}else if(button.getAttribute("class")=="btn_hideLoading"){
@@ -134,7 +140,10 @@
 						hideLoading();
 					}else{
 						clear(src);
-						loadjscssfile(src,"js","hideLoading");
+						//loadjscssfile(src,"js","hideLoading");
+						jQuery.getScript(src, function(data, status, jqxhr) {
+							alert();
+						});						
 					}					
 				}				
 			}
